@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 300px;
+        border: 2px solid #777;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        position: relative;
+        background: url("timg.png")no-repeat center/302px auto;
+    }
+    .box1{
+        width: 10px;
+        height: 10px;
+        background: black;
+        border-radius: 50%;
+    }
+    .h{
+        width: 3px;
+        height: 160px;
+        position: absolute;
+        left: 149px;
+    }
+    .m{
+        width: 3px;
+        height: 240px;
+        position: absolute;
+        left: 149px;
+    }
+    .s{
+        width: 3px;
+        height: 280px;
+        position: absolute;
+        left: 149px;
+    }
+    .on{
+        width: 100%;
+        height: 53%;
+        background: red;
+    }
+    .off{
+        width: 100%;
+        height: 47%;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="h">
+            <div class="on"></div>
+            <div class="off"></div>
+        </div>
+        <div class="m">
+            <div class="on"></div>
+            <div class="off"></div>
+        </div>
+        <div class="s">
+            <div class="on" style="background: black"></div>
+            <div class="off"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let box=document.querySelector(".box");
+    let h=document.querySelector(".h");
+    let m=document.querySelector(".m");
+    let s=document.querySelector(".s");
+
+    function time() {
+        let now=new Date();
+        let H=now.getHours();
+        let M=now.getMinutes();
+        let S=now.getSeconds();
+        s.style.transform=`rotate(${S*6}deg)`;
+        m.style.transform=`rotate(${H*6}deg)`;
+        h.style.transform=`rotate(${M*0.5}deg)`;
+    }
+setInterval(time,1000)
+
+</script>
+</html>
